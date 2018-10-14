@@ -5,8 +5,8 @@ FROM centos:7
 ## USER AND GROUP
 ENV MY_USER="mysql"
 ENV MY_GROUP="mysql"
-ENV MY_UID="50"
-ENV MY_GID="50"
+ENV MY_UID="5000"
+ENV MY_GID="5000"
 RUN groupadd -g ${MY_GID} -r ${MY_GROUP} && \
     adduser ${MY_USER} -u ${MY_UID} -M -s /sbin/nologin -g ${MY_GROUP}
 
