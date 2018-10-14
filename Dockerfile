@@ -16,7 +16,7 @@ RUN wget https://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm &
     rpm -ivh mysql57-community-release-el7-10.noarch.rpm
 
 RUN yum -y install epel-release && \
-    yum -y install hostname
+    yum -y install hostname && \
     yum -y update
 
 RUN yum -y install mysql-community-server
@@ -28,11 +28,11 @@ RUN yum -y autoremove && \
     yum clean all
 
 ## VOLUMES
-VOLUME /var/lib/mysql
-VOLUME /var/log/mysql
-VOLUME /var/sock/mysqld
-VOLUME /etc/mysql/conf.d
-VOLUME etc/mysql/docker-default.d
+VOLUME  /var/lib/mysql && \
+        /var/log/mysql && \
+        /var/sock/mysqld && \
+        /etc/mysql/conf.d && \
+        etc/mysql/docker-default.d
 
 ## INIT
 RUN systemctl start mysqld.service
