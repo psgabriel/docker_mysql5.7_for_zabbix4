@@ -2,16 +2,6 @@
 
 FROM centos:7
 
-ENV container docker
-RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
-rm -f /lib/systemd/system/multi-user.target.wants/;
-rm -f /etc/systemd/system/.wants/;
-rm -f /lib/systemd/system/local-fs.target.wants/;
-rm -f /lib/systemd/system/sockets.target.wants/udev;
-rm -f /lib/systemd/system/sockets.target.wants/initctl;
-rm -f /lib/systemd/system/basic.target.wants/;
-rm -f /lib/systemd/system/anaconda.target.wants/*;
-
 ## USER AND GROUP
 ENV MY_USER="mysql"
 ENV MY_GROUP="mysql"
@@ -22,7 +12,7 @@ RUN groupadd -g ${MY_GID} -r ${MY_GROUP} && \
 
 ## INSTALL
 WORKDIR /
-RUN yum -y install wget
+RUN yum -y install wget sudo
 RUN wget https://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm && \
     rpm -ivh mysql57-community-release-el7-10.noarch.rpm
 
