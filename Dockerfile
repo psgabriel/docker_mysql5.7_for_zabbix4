@@ -8,7 +8,7 @@ ENV MY_GROUP="mysql"
 ENV MY_UID="5000"
 ENV MY_GID="5000"
 RUN groupadd -g ${MY_GID} -r ${MY_GROUP} && \
-    adduser ${MY_USER} -u ${MY_UID} -M -s /sbin/nologin -g ${MY_GROUP}
+    adduser ${MY_USER} -u ${MY_UID} -g ${MY_GROUP}
 
 ## INSTALL
 WORKDIR /
@@ -46,3 +46,5 @@ EXPOSE 3306
 
 VOLUME [ “/sys/fs/cgroup” ]
 CMD ["/usr/sbin/init"]
+
+USER mysql
