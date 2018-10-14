@@ -11,7 +11,7 @@ RUN groupadd -g ${MY_GID} -r ${MY_GROUP} && \
     adduser ${MY_USER} -u ${MY_UID} -M -s /sbin/nologin -g ${MY_GROUP}
 
 ## INSTALL
-RUN mkdir /
+WORKDIR /
 RUN wget https://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm && \
     rpm -ivh mysql57-community-release-el7-10.noarch.rpm
 
