@@ -35,10 +35,8 @@ VOLUME  /var/lib/mysql && \
         /etc/mysql/conf.d && \
         etc/mysql/docker-default.d
 
-## INIT
-RUN systemctl start mysqld.service
 
-## DB CONFIG
+## DB INIT & CONFIG
 COPY ./files/dbconfig.sh /
 ENTRYPOINT ["/dbconfig.sh"]
 
