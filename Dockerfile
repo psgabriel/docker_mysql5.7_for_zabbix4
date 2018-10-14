@@ -12,6 +12,7 @@ RUN groupadd -g ${MY_GID} -r ${MY_GROUP} && \
 
 ## INSTALL
 WORKDIR /
+RUN yum -y install wget
 RUN wget https://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm && \
     rpm -ivh mysql57-community-release-el7-10.noarch.rpm
 
