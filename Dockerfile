@@ -38,7 +38,9 @@ VOLUME  /var/lib/mysql && \
 
 ## DB INIT & CONFIG
 COPY ./files/dbconfig.sh /
+COPY ./files/my.cnf /etc/
 RUN chmod 777 /dbconfig.sh
+RUN chmod 777 /etc/my.cnf
 ENTRYPOINT ["/dbconfig.sh"]
 
 EXPOSE 3306

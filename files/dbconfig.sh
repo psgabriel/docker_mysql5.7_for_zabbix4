@@ -1,6 +1,5 @@
 #!/bin/bash
 
-chmod 777 /etc/my.cnf
 systemctl start mysqld.service
 
 zbx_default_db='./db_zbx_4.0/'
@@ -15,3 +14,5 @@ mysql -uroot -p"Zbx@123:';" --connect-expired-password -e "grant all privileges 
 mysql -uroot -p"Zbx@123:';" zabbix < "${zbx_default_db}"schema.sql
 mysql -uroot -p"Zbx@123:';" zabbix < "${zbx_default_db}"images.sql
 mysql -uroot -p"Zbx@123:';" zabbix < "${zbx_default_db}"data.sql
+
+echo "Mysql intalled with credential: root / Zbx@123:"
