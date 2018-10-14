@@ -1,5 +1,7 @@
 #!/bin/bash
 
+systemctl start mysqld.service
+
 zbx_default_db='./db_zbx_4.0/'
 mysql_pas_temp=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')
 
