@@ -1,5 +1,6 @@
 #!/bin/bash
 
+chmod 777 /etc/my.cnf
 systemctl start mysqld.service
 
 zbx_default_db='./db_zbx_4.0/'
